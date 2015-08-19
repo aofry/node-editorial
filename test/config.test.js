@@ -1,21 +1,22 @@
 var assert = require('assert');
+var nodeEditorial = require('../lib/index.js').NodeEditorial();
 
 
-describe('Array', function () {
-    var arr;
+describe('NodeEditorial', function () {
+    //var arr;
 
     beforeEach(function () {
-        arr = [1, 2, 3];
+        //arr = [1, 2, 3];
     })
 
-    describe('#indexOf()', function () {
-        it('should return -1 when the value is not present', function () {
-            assert(-1 == arr.indexOf(5), 'Not equal');
-        })
+    describe('config', function () {
+        //console.log("the nodeEditorial:" + nodeEditorial);
 
-        it('should return the correct index when the value is present', function () {
-            assert(0 == arr.indexOf(1));
-            assert(1 == arr.indexOf(2));
-        })
+        it('should should check that config exist', function () {
+            assert(nodeEditorial.config != null, 'conf exist');
+        });
+
+
+
     })
 })
