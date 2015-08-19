@@ -31,6 +31,10 @@
     "winston": "^1.0.1",
     "winston-loggly": "^1.1.0"
   },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --reporter spec test"
+  },
   "devDependencies": {
     "mocha": "^2.2.5",
     "supertest": "^1.0.1"
