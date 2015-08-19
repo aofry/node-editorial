@@ -21,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/aofry/NodeEditorial/issues"
   },
-  "homepage": "https://github.com/aofry/NodeEditorial"
+  "homepage": "https://github.com/aofry/NodeEditorial",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "express": "^4.13.3",
+    "massive": "^2.0.6",
+    "path": "^0.11.14",
+    "winston": "^1.0.1",
+    "winston-loggly": "^1.1.0"
+  }
 }
