@@ -1,0 +1,25 @@
+{
+  "name": "NodeEditorial",
+  "version": "0.0.1",
+  "description": "Opinionated node server. made to scale bottom up on AWS",
+  "main": "./lib/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aofry/NodeEditorial.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "postgres",
+    "jwt"
+  ],
+  "author": "Adi Ofry <aofry@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aofry/NodeEditorial/issues"
+  },
+  "homepage": "https://github.com/aofry/NodeEditorial"
+}

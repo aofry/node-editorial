@@ -1,2 +1,2 @@
 # NodeEditorial
-Opinionated node server. made to scale botoom up on AWS
+Opinionated node server. made to scale bottom up on AWS
