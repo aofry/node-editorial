@@ -1,6 +1,9 @@
 # NodeEditorial
 Opinionated node server. made to scale bottom up on AWS
 
+[![Build Status](https://travis-ci.org/aofry/node-editorial.svg)](https://travis-ci.org/aofry/node-editorial)
+
+
 Structure:
 http://bencoe.tumblr.com/post/10326713013/building-your-first-nodejs-library
 
