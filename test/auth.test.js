@@ -1,11 +1,10 @@
-var request = require('supertest')
+var request = require('supertest');
 var express = require('express');
-var assert = require('assert');
 var compression = require('compression');
-var path = require('path');
 var bodyParser = require('body-parser');
+var HttpStatus = require('http-status-codes');
 
-var auth = require('../lib/auth.js')();
+var auth = require('../lib/auth.js');
 
 
 describe('auth', function () {
@@ -27,9 +26,13 @@ describe('auth', function () {
     describe('post login', function () {
         //console.log("the nodeEditorial:" + nodeEditorial);
 
-        it('should check POST /login', function () {
-            //assert(nodeEditorial.config != null, 'conf exist');
+        it('should check correct user pass', function (done) {
+            request(app)
+                .post('/auth/login')
+                .send({ email: 'adi', password: 'pass' })
+                //.set('Accept', 'application/json')
+                //.expect('Content-Type', /json/)
+                .expect(HttpStatus.OK, done);
         });
-
     })
 });
