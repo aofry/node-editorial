@@ -34,5 +34,12 @@ describe('auth', function () {
                 //.expect('Content-Type', /json/)
                 .expect(HttpStatus.OK, done);
         });
-    })
+    });
+
+    //TODO test wrong login
+
+    //TODO test logout
+    //TODO test signup
+    //TODO test authFilter
+    //TODO test static
 });
