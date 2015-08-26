@@ -10,7 +10,8 @@ var nodeEditorial = require('../lib/index.js').NodeEditorial();
 describe('auth', function () {
     var app = express();
     app.set('port', process.env.PORT || 3000);
-    app.use(require('cookie-parser')());
+    var cookieParser = require('cookie-parser');
+    app.use(cookieParser());
     app.use(compression());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,11 +33,29 @@ describe('auth', function () {
                 .send({ email: 'adi', password: 'pass' })
                 //.set('Accept', 'application/json')
                 //.expect('Content-Type', /json/)
-                .expect(HttpStatus.OK, done);
+                .expect(function(res){
+                    if (res.status != HttpStatus.OK)
+                        return true;
+                    if (res.body.token.length == 0)
+                        return true;
+                })
+                .end(done);
+        });
+
+        it('should check wrong pass', function (done) {
+            request(app)
+                .post('/auth/login')
+                .send({ email: 'adi', password: 'other' })
+                .expect(HttpStatus.UNAUTHORIZED, done);
+        });
+
+        it('should check wrong user', function (done) {
+            request(app)
+                .post('/auth/login')
+                .send({ email: 'bla', password: 'other' })
+                .expect(HttpStatus.UNAUTHORIZED, done);
         });
     });
-
-    //TODO test wrong login
 
     //TODO test logout
     //TODO test signup
