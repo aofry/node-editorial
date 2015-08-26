@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aofry/NodeEditorial.git"
+    "url": "https://github.com/aofry/node-editorial.git"
   },
   "keywords": [
     "express",
@@ -20,9 +20,9 @@
   "author": "Adi Ofry <aofry@yahoo.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aofry/NodeEditorial/issues"
+    "url": "https://github.com/aofry/node-editorial/issues"
   },
-  "homepage": "https://github.com/aofry/NodeEditorial",
+  "homepage": "https://github.com/aofry/node-editorial",
   "dependencies": {
     "body-parser": "1.13.3",
     "compression": "1.5.2",

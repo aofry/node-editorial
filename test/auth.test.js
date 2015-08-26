@@ -4,7 +4,7 @@ var compression = require('compression');
 var bodyParser = require('body-parser');
 var HttpStatus = require('http-status-codes');
 
-var auth = require('../lib/auth.js');
+var authService = require('../lib/auth.js');
 
 
 describe('auth', function () {
@@ -15,8 +15,7 @@ describe('auth', function () {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    console.log(auth);
-    app.post('/auth/login', auth.login);
+    app.use('/auth/', authService);
 
 
     beforeEach(function () {
