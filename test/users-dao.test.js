@@ -44,5 +44,15 @@ describe('users-dao', function () {
                 done();
             });
         });
+
+        it('should check get user that does not exist', function (done) {
+            usersDao.get(Math.random(), function (user) {
+//                console.log("not found user: " + JSON.stringify(user));
+                //console.log("not found user: " + user);
+                if (user != undefined)
+                    throw new Error('get user that is not in the db, should be undefined');
+                done();
+            });
+        });
     });
 });
