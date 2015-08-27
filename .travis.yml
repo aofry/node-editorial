@@ -10,7 +10,7 @@ env:
   - POSTGRES_URL=postgres://postgres@localhost/editorial
 
 addons:
-  postgresql: "9.3"
+#  postgresql: "9.3"
 
 before_script:
   - psql -c "drop database IF EXISTS editorial;" -U postgres
