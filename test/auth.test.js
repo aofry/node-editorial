@@ -25,7 +25,6 @@ describe('auth', function () {
     });
 
     describe('post login', function () {
-        //console.log("the nodeEditorial:" + nodeEditorial);
 
         it('should check correct user pass', function (done) {
             request(app)
@@ -64,16 +63,22 @@ describe('auth', function () {
                 .send({ email: 'user' + Math.random(), password: 'pass' })
                 //.set('Accept', 'application/json')
                 //.expect('Content-Type', /json/)
-                .expect(function(res){
-                    if (res.status != HttpStatus.OK)
-                        done();
-                })
+                .expect(HttpStatus.OK)
+                .end(done);
+        });
+
+        it('should check wrong user signup with username that already exist', function (done) {
+            request(app)
+                .post('/auth/signup')
+                .send({ email: 'adi', password: 'pass' })
+                //.set('Accept', 'application/json')
+                //.expect('Content-Type', /json/)
+                .expect(HttpStatus.CONFLICT)
                 .end(done);
         });
     });
 
     //TODO test logout
-    //TODO test signup
     //TODO test authFilter
     //TODO test static
 });
