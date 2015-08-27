@@ -5,3 +5,16 @@ node_js:
 cache:
   directories:
     - node_modules
+
+env:
+  - POSTGRES_URL=postgres://postgres@localhost/editorial
+
+addons:
+  postgresql: "9.3"
+
+before_script:
+  - psql -c "drop database editorial;" -U postgres
+  - psql -c "create database IF NOT EXISTS editorial;" -U postgres
+  - psql -c "CREATE TABLE users (username VARCHAR PRIMARY KEY UNIQUE NOT NULL, password VARCHAR NOT NULL);" -U postgres -d editorial
+  - psql -c "INSERT INTO users (username, password) VALUES ('adi', 'pass');" -U postgres -d editorial
+
