@@ -1,18 +1,28 @@
 var usersDao = require('../lib/users-dao.js');
 
 describe('users-dao', function () {
+    var newUserName = "user" + Math.random();
 
     beforeEach(function () {
 
     });
 
-    describe('users CRUD', function () {
+    describe('users dao CRUD', function () {
 
         it('should check save new user', function (done) {
-            usersDao.insert({username: "user" + Math.random(), password: "otherpass1"}, function (updatedUser) {
+            usersDao.insert({username: newUserName, password: "otherpass1"}, function (updatedUser) {
                 //console.log("inserted user: " + JSON.stringify(updatedUser));
                 if (updatedUser == null)
                     throw new Error('could not insert new user');
+                done();
+            });
+        });
+
+        it('should check del new user', function (done) {
+            usersDao.del(newUserName, function (updatedUser) {
+                //console.log("deleted user: " + JSON.stringify(updatedUser));
+                if (updatedUser == null)
+                    throw new Error('could not del new user');
                 done();
             });
         });
@@ -28,7 +38,7 @@ describe('users-dao', function () {
 
         it('should check get user', function (done) {
             usersDao.get("adi", function (user) {
-                console.log("get user: " + JSON.stringify(user));
+                //console.log("get user: " + JSON.stringify(user));
                 if (user == null)
                     throw new Error('could not get user');
                 done();
