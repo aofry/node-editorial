@@ -1,7 +1,7 @@
 {
   "name": "node-editorial",
-  "version": "0.1.1",
-  "description": "Opinionated node server. made to scale bottom up on AWS",
+  "version": "0.1.5",
+  "description": "Opinionated node server. made to scale bottom up",
   "main": "./lib/index",
   "scripts": {
     "start": "node server.js",

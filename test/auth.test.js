@@ -35,9 +35,9 @@ describe('auth', function () {
                 //.expect('Content-Type', /json/)
                 .expect(function(res){
                     if (res.status != HttpStatus.OK)
-                        return true;
+                        done();
                     if (res.body.token.length == 0)
-                        return true;
+                        done();
                 })
                 .end(done);
         });
@@ -54,6 +54,21 @@ describe('auth', function () {
                 .post('/auth/login')
                 .send({ email: 'bla', password: 'other' })
                 .expect(HttpStatus.UNAUTHORIZED, done);
+        });
+    });
+
+    describe('post signup', function () {
+        it('should check new user signup', function (done) {
+            request(app)
+                .post('/auth/signup')
+                .send({ email: 'user' + Math.random(), password: 'pass' })
+                //.set('Accept', 'application/json')
+                //.expect('Content-Type', /json/)
+                .expect(function(res){
+                    if (res.status != HttpStatus.OK)
+                        done();
+                })
+                .end(done);
         });
     });
 
