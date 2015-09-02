@@ -7,16 +7,16 @@ cache:
     - node_modules
 
 env:
-  - POSTGRES_URL=postgres://postgres@localhost/editorial
-  - DATABASE_URL=postgres://postgres@localhost/editorial
+  - POSTGRES_URL=postgres://postgres@localhost/editorial DATABASE_URL=postgres://postgres@localhost/editorial
 
 addons:
 #  postgresql: "9.3"
 
 before_script:
   - psql -c "drop database IF EXISTS editorial;" -U postgres
+  - psql -c "create database editorial;" -U postgres
   - node_modules/db-migrate/bin/db-migrate up
-  #- psql -c "create database editorial;" -U postgres
+
   #- psql -c "CREATE TABLE users (username VARCHAR PRIMARY KEY UNIQUE NOT NULL, password VARCHAR NOT NULL);" -U postgres -d editorial
   #- psql -c "INSERT INTO users (username, password) VALUES ('adi', 'pass');" -U postgres -d editorial
   - mkdir -p logs
