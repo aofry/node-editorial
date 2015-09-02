@@ -4,7 +4,7 @@ var compression = require('compression');
 var bodyParser = require('body-parser');
 var HttpStatus = require('http-status-codes');
 
-var nodeEditorial = require('../lib/index.js').NodeEditorial();
+var nodeEditorial = require('../lib/index.js').NodeEditorial({tokenAge : 2000, tokenSecret: 'ajklfhlasdkl456ajf'});
 
 
 describe('auth', function () {
