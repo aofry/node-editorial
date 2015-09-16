@@ -15,7 +15,7 @@ describe('node-editorial', function () {
         });
 
         it('should check that logger exist on its own', function () {
-            var log = require('../lib/logFactory.js');
+            var log = new require('../lib/logFactory.js')();
             assert(log != null, 'logger exist on its won');
             log.debug("testing logger as a simple loaded obj");
         });
