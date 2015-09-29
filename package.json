@@ -1,6 +1,6 @@
 {
   "name": "node-editorial",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Opinionated node server. made to scale bottom up",
   "main": "./lib/index",
   "scripts": {
@@ -37,7 +37,13 @@
     "winston-loggly": "1.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.2.5",
-    "supertest": "^1.0.1"
+    "ghooks": "0.3.2",
+    "mocha": "2.2.5",
+    "supertest": "1.0.1"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm test"
+    }
   }
 }
