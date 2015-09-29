@@ -1,21 +1,25 @@
 sudo: false
 language: node_js
 node_js:
-  - "0.12"
+- '0.12'
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 env:
-  - DATABASE_URL=postgres://postgres@localhost/editorial
-
-addons:
+- DATABASE_URL=postgres://postgres@localhost/editorial
+addons: 
 #  postgresql: "9.3"
 
 before_script:
-  - psql -c "drop database IF EXISTS editorial;" -U postgres
-  - psql -c "create database editorial;" -U postgres
-  - node_modules/db-migrate/bin/db-migrate up
-
-  - mkdir -p logs
-
+- psql -c "drop database IF EXISTS editorial;" -U postgres
+- psql -c "create database editorial;" -U postgres
+- node_modules/db-migrate/bin/db-migrate up
+- mkdir -p logs
+deploy:
+  provider: npm
+  email: aofry@yahoo.com
+  api_key:
+    secure: cz/a9zrBt/TDYlzdTFvg8MkIDjmxGpjlbik1uptOxsxGeidOznVfaCtqlALIJIGGJwg0ruowv0/8f1caDUJNs9m2j2D21LS1LhzXoRJkKB1d4f38lQNalFevQyubQgHJTX6QYuiYX57KBr9lhw+bwAjgMvyMsWaylF/zfYidfb/qJi/UcVjaHfSDbMc1h8Tj1/nLQxrhbxzWgSjZdbHx+vKSUJjKcLA3USaq11COrD0qZODjIBhZDsGoUc81/FA8gQIOhj5ysTnxUuYjlPSNmOyOE967ZLXNzAanAflCNHqvw/D+wa9fUeOAIi/5XkaPfahXJEDSOYWX3gsJykp25xYwb8ldBAXZ/uZZ+p/wOJ8sYwg/ntcJ/8vte9/gVJusUDRdIRQjTeW2q6aapozTFOpJufH2kWc4nxwqTSLJulvMqdNRc8FrToztXpSAbBFiLT4AEZOXpJtewQ7HYfyG/OL8TAz/+Dho2nRHBieRsw1HsG1T8dLEseIKiBCOhTdgGt5JUUlHCZoUEMF4eCv52H2BBqM1qd/hX0QD9ERCyWyzvkliqW3oQr+RdVM9UAdT4CqdRP9G13MG5Bn+20LMZ8jVH49SrHi1zJlPPNz6EOloe7n/sP4HIo4u+fYX8jKzdttpgvovUC1W2JIxSLcUPU0vGdmlIu6L2ksie2S6IkQ=
+  on:
+    tags: true
+    repo: aofry/node-editorial
