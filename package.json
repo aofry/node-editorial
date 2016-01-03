@@ -1,6 +1,6 @@
 {
   "name": "node-editorial",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Opinionated node server. made to scale bottom up",
   "main": "./lib/index",
   "scripts": {
