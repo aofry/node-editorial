@@ -8,3 +8,6 @@ patch:
         patched: '2017-05-27T04:33:04.763Z'
     - db-migrate > tunnel-ssh > debug > ms:
         patched: '2017-05-27T04:33:04.763Z'
+  'npm:debug:20170905':
+    - db-migrate > tunnel-ssh > debug:
+        patched: '2017-09-30T04:33:07.528Z'
