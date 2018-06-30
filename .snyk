@@ -20,3 +20,6 @@ patch:
         patched: '2018-06-23T01:21:14.537Z'
     - winston-loggly > loggly > request > hawk > cryptiles > boom > hoek:
         patched: '2018-06-23T01:21:14.537Z'
+  'npm:tunnel-agent:20170305':
+    - winston-loggly > loggly > request > tunnel-agent:
+        patched: '2018-06-30T01:17:26.150Z'
